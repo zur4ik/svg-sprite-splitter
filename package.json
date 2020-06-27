@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/zur4ik/svg-sprite-splitter/issues"
   },
-  "homepage": "https://github.com/zur4ik/svg-sprite-splitter#readme"
+  "homepage": "https://github.com/zur4ik/svg-sprite-splitter#readme",
+  "devDependencies": {
+    "@types/fs-extra": "^9.0.1",
+    "fs-extra": "^9.0.1"
+  }
 }

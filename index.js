@@ -1,9 +1,20 @@
 // Credits https://gist.github.com/dennishall1/3e96d52e73db20b27cd0
 
-let fs = require('fs');
-let path = require('path');
+const fs = require('fs-extra')
+const path = require('path');
 
-let markup = fs.readFileSync('input/sprite.svg').toString();
+// configs
+const config = {
+	sprite: 'input/icons.svg',
+	output: 'output/',
+	prefix: 'icon-'
+}
+
+// clean out dir before start
+fs.emptyDirSync(config.output)
+console.log('Out dir cleaned...')
+
+let markup = fs.readFileSync(config.sprite).toString();
 let lines = markup.split(/\n/g);
 let symbols = {};
 let currentSymbol = null;
@@ -15,12 +26,12 @@ lines.forEach(function(line){
 		symbols[currentSymbol].push(line);
 	}
 	if(open){
-		currentSymbol = open[1];
+		currentSymbol = open[1].replace(config.prefix, '');
 		symbols[currentSymbol] = [line];
 	}
 	if(close){
 		symbols[currentSymbol] = symbols[currentSymbol].join('\n').replace('<symbol', '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"').replace('</symbol', '</svg');
-		fs.writeFileSync(path.join(__dirname, 'output/' + currentSymbol + '.svg'), symbols[currentSymbol]);
+		fs.writeFileSync(path.join(__dirname, config.output, currentSymbol + '.svg'), symbols[currentSymbol]);
 		currentSymbol = null;
 	}
 });

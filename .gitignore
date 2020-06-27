@@ -1,6 +1,4 @@
-
-output/
-
 .idea/
-
+output/
 input/
+/node_modules/
