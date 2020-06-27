@@ -1,0 +1,19 @@
+{
+  "name": "svg-sprite-splitter",
+  "version": "1.0.0",
+  "description": "Split SVG sprite into separate files",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zur4ik/svg-sprite-splitter.git"
+  },
+  "author": "Zura Jijavadze",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zur4ik/svg-sprite-splitter/issues"
+  },
+  "homepage": "https://github.com/zur4ik/svg-sprite-splitter#readme"
+}
